@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
-const LISTEN_PORT = require('./settings')
+const {LISTEN_PORT} = require('./settings')
 
 app.use(cors())
 
