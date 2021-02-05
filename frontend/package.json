@@ -1,0 +1,25 @@
+{
+  "name": "slots",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "author": "Leonid Semenov",
+  "license": "ISC",
+  "dependencies": {
+    "path": "^0.12.7",
+    "phaser": "^3.52.0",
+    "webpack": "^5.18.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.19.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "webpack-cli": "^4.4.0",
+    "webpack-dev-server": "^3.11.2"
+  }
+}
