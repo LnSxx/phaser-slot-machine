@@ -1,6 +1,6 @@
-/* eslint-disable no-new */
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = (env) => ({
   mode: 'development',
@@ -16,5 +16,6 @@ module.exports = (env) => ({
   },
   plugins: [
     new webpack.DefinePlugin({ 'process.env.STATIC_FILES_BACKEND_URL': JSON.stringify(env.STATIC_FILES_BACKEND_URL) }),
+    new HtmlWebpackPlugin({ template: './src/templates/index.html' }),
   ],
 });

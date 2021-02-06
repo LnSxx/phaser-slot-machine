@@ -11,6 +11,7 @@
   "author": "Leonid Semenov",
   "license": "ISC",
   "dependencies": {
+    "html-webpack-plugin": "^5.0.0",
     "path": "^0.12.7",
     "phaser": "^3.52.0",
     "webpack": "^5.18.0"
