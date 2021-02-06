@@ -30,7 +30,7 @@ export default class View {
   createWorld(scene, startButtonHandler, stopButtonHandler) {
     const startButton = scene.add.image(700, 200, IMAGES.start_button);
     const stopButton = scene.add.image(700, 400, IMAGES.stop_button);
-    for (let i = 0; i < settings.NUMBER_OF_WHEELS; i++) {
+    for (let i = 0; i < settings.NUMBER_OF_REELS; i++) {
       this.reels.push(scene.add.tileSprite(this.getLocationX(i), 300, 100, 300, IMAGES.reel));
     }
     startButton.setInteractive();
@@ -43,8 +43,8 @@ export default class View {
     });
   }
 
-  getLocationX(index) {
-    return index * 100 + 100;
+  getLocationX(reelIndex) {
+    return reelIndex * 100 + 100;
   }
 
   getCoordinateY(numberOfEntity) {
@@ -59,16 +59,16 @@ export default class View {
     this.frameCounter = 0;
   }
 
-  getAccelerationSpeed(i) {
-    const speed = Math.round(((10 / (i + 1)) * this.frameCounter) / 10);
+  getAccelerationSpeed(reelIndex) {
+    const speed = Math.round(((10 / (reelIndex + 1)) * this.frameCounter) / 10);
     if (speed >= this.maxAccelerationSpeed) {
       return this.maxAccelerationSpeed;
     }
     return speed;
   }
 
-  getDecelerationSpeed(i) {
-    const decSpeed = Math.round(1 / ((this.frameCounter * (1 / (i + 1))) / 300));
+  getDecelerationSpeed(reelIndex) {
+    const decSpeed = Math.round(1 / ((this.frameCounter * (1 / (reelIndex + 1))) / 300));
     if (decSpeed <= this.minDecelerationSpeed) {
       return this.minDecelerationSpeed;
     }
@@ -90,7 +90,7 @@ export default class View {
       tileSprites[i].tilePositionY -= this.getAccelerationSpeed(i);
       if (tileSprites[i].tilePositionY <= -1 * this.getReelHeight(
         settings.NUMBER_OF_ENTITIES,
-        settings.heightOfEntity,
+        settings.HEIGHT_OF_ENTITY,
       )) {
         tileSprites[i].tilePositionY = 0;
       }
@@ -103,7 +103,7 @@ export default class View {
       reel.tilePositionY -= this.minDecelerationSpeed;
       if (reel.tilePositionY < -1 * this.getReelHeight(
         settings.NUMBER_OF_ENTITIES,
-        settings.heightOfEntity,
+        settings.HEIGHT_OF_ENTITY,
       )) {
         reel.tilePositionY = 0;
       }
@@ -124,7 +124,7 @@ export default class View {
       tileSprites[i].tilePositionY -= this.getDecelerationSpeed(i);
       if (tileSprites[i].tilePositionY <= -1 * this.getReelHeight(
         settings.NUMBER_OF_ENTITIES,
-        settings.heightOfEntity,
+        settings.HEIGHT_OF_ENTITY,
       )) {
         tileSprites[i].tilePositionY = 0;
       }

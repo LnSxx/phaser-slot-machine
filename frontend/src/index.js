@@ -7,7 +7,7 @@ import settings from './settings.js';
 
 const slotMachine = new SlotMachine(
   settings.NUMBER_OF_ENTITIES,
-  settings.NUMBER_OF_WHEELS,
+  settings.NUMBER_OF_REELS,
   settings.SPIN_TIME,
 );
 
